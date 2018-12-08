@@ -1,10 +1,10 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
 // Components
-import Router from './components/Router';
+import Router from "./components/Router";
 
 //Import CSS
-import './css/style.css';
+import "./css/style.css";
 
-render(<Router />, document.querySelector('#main'));
+render(<Router />, document.querySelector("#main"));
