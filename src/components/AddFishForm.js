@@ -35,8 +35,8 @@ export default class AddFishForm extends Component {
           placeholder="Price"
         />
         <select name="status" ref={this.statusRef}>
-          <option value="avaliable">Fresh</option>
-          <option value="unavaliable">Sold Out</option>
+          <option value="true"> Fresh</option>
+          <option value="false">Sold Out</option>
         </select>
         <textarea name="desc" ref={this.descRef} placeholder="Desc" />
         <input
