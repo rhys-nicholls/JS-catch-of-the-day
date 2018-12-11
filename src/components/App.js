@@ -6,6 +6,7 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import Fish from "./Fish";
 
+import base from "../base";
 import sampleFishes from "../sample-fishes";
 
 export default class App extends Component {
@@ -13,6 +14,18 @@ export default class App extends Component {
     fishes: {},
     order: {}
   };
+
+  componentDidMount() {
+    const { params } = this.props.match;
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes"
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   addFish = fish => {
     // 1. Create copy of state
@@ -52,10 +65,7 @@ export default class App extends Component {
             ))}
           </ul>
         </div>
-        <Order 
-          fishes={this.state.fishes} 
-          order={this.state.order} 
-          />
+        <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
