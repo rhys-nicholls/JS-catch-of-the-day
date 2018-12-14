@@ -6,6 +6,8 @@ export default class Order extends Component {
   renderOrder = key => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
+    //Ensure fish is loaded
+    if (!fish) return null;
     if (!fish.status) {
       return (
         <li key={key}>
