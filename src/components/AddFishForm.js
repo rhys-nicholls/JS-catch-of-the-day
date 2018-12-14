@@ -21,7 +21,7 @@ export default class AddFishForm extends Component {
     // 3. Add fish to state
     this.props.addFish(fish);
     // 4. Refresh form
-    event.currentTarget.reset()  
+    event.currentTarget.reset();
   };
 
   render() {
