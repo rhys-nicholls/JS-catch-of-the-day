@@ -11,6 +11,10 @@ export default class EditFishForm extends Component {
     this.props.updateFish(this.props.index, updatedFish);
   };
 
+  handleDelete = () => {
+    this.props.deleteFish(this.props.index);
+  }
+
   render() {
     const { image, name, price, desc, status } = this.props.fish;
 
@@ -39,6 +43,7 @@ export default class EditFishForm extends Component {
           value={image}
           onChange={this.handleChange}
         />
+        <button onClick={this.handleDelete}>Remove Fish</button>
       </div>
     );
   }
